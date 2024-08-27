@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
+    <div id="main-content" class="container">
         <h1>🔐 Password Generator</h1>
         <div class="password-container">
             <input type="text" id="password-output" readonly>
@@ -19,7 +19,54 @@
             <p>Current Settings:</p>
             <ul id="settings-list"></ul>
         </div>
-        <button id="open-options">Open Settings</button>
+        <button id="open-settings">Open Settings</button>
+    </div>
+    <div id="settings-content" class="container hidden">
+        <h1>🔧 Password Settings</h1>
+        <form id="settings-form">
+            <div class="form-group">
+                <label for="password-length">Password Length:</label>
+                <input type="number" id="password-length" min="4" max="64" value="12">
+            </div>
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" id="uppercase" checked>
+                    Include Uppercase Letters
+                </label>
+            </div>
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" id="lowercase" checked>
+                    Include Lowercase Letters
+                </label>
+            </div>
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" id="numbers" checked>
+                    Include Numbers
+                </label>
+            </div>
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" id="symbols" checked>
+                    Include Symbols
+                </label>
+            </div>
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" id="exclude-similar">
+                    Exclude Similar Characters
+                </label>
+            </div>
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" id="exclude-ambiguous">
+                    Exclude Ambiguous Characters
+                </label>
+            </div>
+            <button type="submit">Save Settings</button>
+        </form>
+        <button id="back-to-main">Back to Generator</button>
     </div>
     <script src="popup.js"></script>
 </body>
