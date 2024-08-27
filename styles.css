@@ -20,6 +20,18 @@ body {
   background-color: var(--background-color);
   color: var(--on-background);
   width: 350px;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+/* Prevent context menu on right-click */
+body:not(#password-output) {
+  -webkit-context-menu: none;
+  -moz-context-menu: none;
+  -ms-context-menu: none;
+  context-menu: none;
 }
 
 .container {
@@ -55,6 +67,10 @@ h1 {
   border: none;
   border-radius: 4px;
   color: var(--on-surface);
+  user-select: text;
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
 }
 
 button {
@@ -105,9 +121,11 @@ button {
 }
 
 label {
-  display: block;
+  display: flex;
+  align-items: center;
   margin-bottom: 5px;
   color: var(--on-surface);
+  cursor: pointer;
 }
 
 input[type="number"] {
@@ -119,8 +137,42 @@ input[type="number"] {
   color: var(--on-surface);
 }
 
+/* Custom checkbox styles */
 input[type="checkbox"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--primary-color);
+  border-radius: 4px;
   margin-right: 10px;
+  position: relative;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+input[type="checkbox"]:checked {
+  background-color: var(--primary-color);
+}
+
+input[type="checkbox"]:checked::after {
+  content: '\2714';
+  font-size: 14px;
+  color: var(--on-primary);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+input[type="checkbox"]:hover {
+  border-color: var(--primary-light);
+}
+
+input[type="checkbox"]:focus {
+  box-shadow: 0 0 0 2px var(--primary-light);
 }
 
 .toast {

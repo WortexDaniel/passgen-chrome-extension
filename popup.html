@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Password Generator</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -12,15 +12,16 @@
         <h1>🔐 Password Generator</h1>
         <div class="password-container">
             <input type="text" id="password-output" readonly>
-            <button id="copy-button" title="Copy to clipboard">📋</button>
+            <button id="copy-button">📋</button>
         </div>
         <button id="generate-button">Generate Password</button>
         <div class="settings-summary">
-            <p>Current Settings:</p>
+            <h2>Current Settings:</h2>
             <ul id="settings-list"></ul>
         </div>
         <button id="open-settings">Open Settings</button>
     </div>
+
     <div id="settings-content" class="container hidden">
         <h1>🔧 Password Settings</h1>
         <form id="settings-form">
@@ -29,45 +30,52 @@
                 <input type="number" id="password-length" min="4" max="64" value="12">
             </div>
             <div class="form-group">
-                <label>
-                    <input type="checkbox" id="uppercase" checked>
+                <label class="checkbox-wrapper">
                     Include Uppercase Letters
+                    <input type="checkbox" id="uppercase">
+                    <span class="checkmark"></span>
                 </label>
             </div>
             <div class="form-group">
-                <label>
-                    <input type="checkbox" id="lowercase" checked>
+                <label class="checkbox-wrapper">
                     Include Lowercase Letters
+                    <input type="checkbox" id="lowercase">
+                    <span class="checkmark"></span>
                 </label>
             </div>
             <div class="form-group">
-                <label>
-                    <input type="checkbox" id="numbers" checked>
+                <label class="checkbox-wrapper">
                     Include Numbers
+                    <input type="checkbox" id="numbers">
+                    <span class="checkmark"></span>
                 </label>
             </div>
             <div class="form-group">
-                <label>
-                    <input type="checkbox" id="symbols" checked>
+                <label class="checkbox-wrapper">
                     Include Symbols
+                    <input type="checkbox" id="symbols">
+                    <span class="checkmark"></span>
                 </label>
             </div>
             <div class="form-group">
-                <label>
-                    <input type="checkbox" id="exclude-similar">
+                <label class="checkbox-wrapper">
                     Exclude Similar Characters
+                    <input type="checkbox" id="exclude-similar">
+                    <span class="checkmark"></span>
                 </label>
             </div>
             <div class="form-group">
-                <label>
-                    <input type="checkbox" id="exclude-ambiguous">
+                <label class="checkbox-wrapper">
                     Exclude Ambiguous Characters
+                    <input type="checkbox" id="exclude-ambiguous">
+                    <span class="checkmark"></span>
                 </label>
             </div>
             <button type="submit">Save Settings</button>
         </form>
         <button id="back-to-main">Back to Generator</button>
     </div>
+
     <script src="popup.js"></script>
 </body>
 </html>

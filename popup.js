@@ -9,16 +9,13 @@ document.addEventListener('DOMContentLoaded', function() {
     const mainContent = document.getElementById('main-content');
     const settingsContent = document.getElementById('settings-content');
 
-    function showContent(content) {
-        mainContent.classList.add('hidden');
-        settingsContent.classList.add('hidden');
-        setTimeout(() => {
-            content.classList.remove('hidden');
-        }, 300);
+    function showContent(contentToShow, contentToHide) {
+        contentToHide.classList.add('hidden');
+        contentToShow.classList.remove('hidden');
     }
 
-    openSettingsButton.addEventListener('click', () => showContent(settingsContent));
-    backToMainButton.addEventListener('click', () => showContent(mainContent));
+    openSettingsButton.addEventListener('click', () => showContent(settingsContent, mainContent));
+    backToMainButton.addEventListener('click', () => showContent(mainContent, settingsContent));
 
     function loadSettings() {
         chrome.storage.sync.get('passwordSettings', function(data) {
@@ -66,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         chrome.storage.sync.set({ passwordSettings: settings }, function() {
             updateSettingsSummary(settings);
-            showContent(mainContent);
+            showContent(mainContent, settingsContent);
             showToast('Settings saved successfully!');
         });
     }
@@ -89,7 +86,13 @@ document.addEventListener('DOMContentLoaded', function() {
         toast.className = 'toast';
         document.body.appendChild(toast);
         setTimeout(() => {
-            toast.remove();
+            toast.classList.add('show');
+        }, 10);
+        setTimeout(() => {
+            toast.classList.remove('show');
+            setTimeout(() => {
+                toast.remove();
+            }, 300);
         }, 2000);
     }
 
