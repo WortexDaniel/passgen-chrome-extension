@@ -1,0 +1,156 @@
+:root {
+  --primary-color: #FF9800;
+  --primary-light: #FFB74D;
+  --primary-dark: #F57C00;
+  --secondary-color: #757575;
+  --background-color: #FAFAFA;
+  --surface-color: #FFFFFF;
+  --error-color: #B00020;
+  --on-primary: #000000;
+  --on-secondary: #FFFFFF;
+  --on-background: #000000;
+  --on-surface: #000000;
+  --on-error: #FFFFFF;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 20px;
+  background-color: var(--background-color);
+  color: var(--on-background);
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: var(--surface-color);
+  padding: 20px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  color: var(--primary-color);
+  margin-top: 0;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--secondary-color);
+}
+
+input[type="text"],
+input[type="number"] {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid var(--secondary-color);
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+button {
+  background-color: var(--primary-color);
+  color: var(--on-primary);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: var(--primary-dark);
+}
+
+.password-container {
+  display: flex;
+  margin-bottom: 15px;
+}
+
+#password-output {
+  flex-grow: 1;
+  margin-right: 10px;
+}
+
+#copy-button {
+  background-color: var(--secondary-color);
+  color: var(--on-secondary);
+}
+
+#copy-button:hover {
+  background-color: #616161;
+}
+
+.status {
+  margin-top: 15px;
+  padding: 10px;
+  border-radius: 4px;
+  background-color: var(--primary-light);
+  color: var(--on-primary);
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.status.show {
+  opacity: 1;
+}
+
+.toast {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--secondary-color);
+  color: var(--on-secondary);
+  padding: 10px 20px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Styles specific to the popup */
+body.popup {
+  width: 300px;
+  padding: 10px;
+}
+
+body.popup .container {
+  padding: 10px;
+}
+
+body.popup h1 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+body.popup .password-container {
+  margin-bottom: 10px;
+}
+
+body.popup #generate-button,
+body.popup #open-options {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+body.popup .settings-summary {
+  font-size: 14px;
+  color: var(--secondary-color);
+  margin-bottom: 10px;
+}
+
+body.popup .settings-summary ul {
+  padding-left: 20px;
+  margin: 5px 0;
+}
