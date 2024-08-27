@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Generator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🔐 Password Generator</h1>
+        <div class="password-container">
+            <input type="text" id="password-output" readonly>
+            <button id="copy-button" title="Copy to clipboard">📋</button>
+        </div>
+        <button id="generate-button">Generate Password</button>
+        <div class="settings-summary">
+            <p>Current Settings:</p>
+            <ul id="settings-list"></ul>
+        </div>
+        <button id="open-options">Open Settings</button>
+    </div>
+    <script src="popup.js"></script>
+</body>
+</html>
